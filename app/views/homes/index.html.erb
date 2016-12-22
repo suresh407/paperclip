@@ -1,0 +1,32 @@
+<h1>Homes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @homes.each do |home| %>
+      <tr>
+        <td><%= image_tag home.avatar.url(:thumb) %></td>
+        <td><%= home.name %></td>
+        <td><%= home.description %></td>
+        <td><%= link_to 'Show', home %></td>
+        <td><%= link_to 'Edit', edit_home_path(home) %></td>
+        <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'NewHome', new_home_path %>
+
